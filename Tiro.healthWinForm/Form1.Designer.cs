@@ -46,7 +46,7 @@ namespace Tiro.healthWinForm
             this.webView21.Location = new System.Drawing.Point(15, 12);
             this.webView21.Name = "webView21";
             this.webView21.Size = new System.Drawing.Size(1212, 364);
-            this.webView21.Source = new System.Uri("http://10.211.55.2:3000/textarea-export", System.UriKind.Absolute);
+            this.webView21.Source = new System.Uri("https://demo.tiro.health/textarea-export", System.UriKind.Absolute);
             this.webView21.TabIndex = 0;
             this.webView21.ZoomFactor = 1D;
             // 
@@ -103,7 +103,6 @@ namespace Tiro.healthWinForm
             this.label3.Size = new System.Drawing.Size(398, 26);
             this.label3.TabIndex = 6;
             this.label3.Text = "Markdown with SNOMED CT hyperlinks";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // Form1
             // 

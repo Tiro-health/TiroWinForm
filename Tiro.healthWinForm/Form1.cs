@@ -31,14 +31,7 @@ namespace Tiro.healthWinForm
         async void InitializeAsync()
         {
             await webView21.EnsureCoreWebView2Async(null);
-            webView21.CoreWebView2.WebMessageReceived += processContent; 
             webView21.CoreWebView2.AddHostObjectToScript("bridge", new Bridge(this));
-
-        }
-        void processContent(object sender, CoreWebView2WebMessageReceivedEventArgs args)
-        {
-            String payload = args.TryGetWebMessageAsString();
-            plainTextBox.Text = payload;
 
         }
 
@@ -59,10 +52,6 @@ namespace Tiro.healthWinForm
             set { this.JSONTextBox.Text = value; }
         }
 
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 
     [ClassInterface(ClassInterfaceType.AutoDual)]
