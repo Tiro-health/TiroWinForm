@@ -9,7 +9,8 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using Hl7.Fhir.Model;
+using Hl7.Fhir.Serialization;
 
 namespace Tiro.healthWinForm
 {
@@ -35,17 +36,6 @@ namespace Tiro.healthWinForm
 
         }
 
-        public string plainText
-        {
-            get { return this.plainTextBox.Text; }
-            set { this.plainTextBox.Text = value; }
-        }
-
-        public string markdown
-        {
-            get { return this.markDownTextBox.Text; }
-            set { this.markDownTextBox.Text = value; }
-        }
         public string json
         {
             get { return this.JSONTextBox.Text; }
@@ -58,24 +48,45 @@ namespace Tiro.healthWinForm
     [ComVisible(true)]
     public class Bridge
     {
+        private QuestionnaireResponse _response;
         private Form1 _form;
         public Bridge(Form1 form)
         {
             this._form = form;
-        }
-        public void processPlainText(string param)
-        {
-            this._form.plainText = param;
-        }
-        public void processJSON(string param)
-        {
-            this._form.json = param;
+            this._form.json = "";
         }
 
-        public void processMarkDown(string param)
+        public string getBlockbyBlockId(string pid, string bid)
         {
-            this._form.markdown = param;
+            var serializer = new FhirJsonSerializer(new SerializerSettings()
+            {
+                Pretty = true
+            });
+            if(this._response == null)
+            {
+                return "";
+            }
+            return serializer.SerializeToString(this._response);
         }
+        public string postBlockbyBlockId(string pid, string bid, string block)
+        {
+            var parser = new FhirJsonParser(new ParserSettings
+            {
+                AcceptUnknownMembers = true,
+                AllowUnrecognizedEnums = true
+            });
+
+            try
+            {
+                this._response = parser.Parse<QuestionnaireResponse>(block);
+            }
+            catch (FormatException fe)
+            {
+                Console.WriteLine(fe.ToString());
+            }
+            return this._form.json = block;
+        }
+
 
     }
 }
