@@ -36,27 +36,34 @@ namespace Tiro.healthWinForm
 
         }
 
-        public string json
+        private void textBox2_TextChanged(object sender, EventArgs e)
         {
-            get { return this.JSONTextBox.Text; }
-            set { this.JSONTextBox.Text = value; }
+
         }
 
+        private void textBox3_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.webView21.Source = new System.Uri("http://10.37.129.2:3000/embedded/templates?age=" + this.ageText.Text + "&sex=" + this.sexText.Text + "&apiKey=" + this.apiKeyText.Text);
+        }
     }
 
     [ClassInterface(ClassInterfaceType.AutoDual)]
     [ComVisible(true)]
     public class Bridge
     {
-        private QuestionnaireResponse _response;
+        private Bundle _response;
         private Form1 _form;
         public Bridge(Form1 form)
         {
             this._form = form;
-            this._form.json = "";
         }
 
-        public string getBlockbyBlockId(string pid, string bid)
+        public string getDocument()
         {
             var serializer = new FhirJsonSerializer(new SerializerSettings()
             {
@@ -68,7 +75,7 @@ namespace Tiro.healthWinForm
             }
             return serializer.SerializeToString(this._response);
         }
-        public string postBlockbyBlockId(string pid, string bid, string block)
+        public void setDocument(string fhirJsonDocument)
         {
             var parser = new FhirJsonParser(new ParserSettings
             {
@@ -78,13 +85,12 @@ namespace Tiro.healthWinForm
 
             try
             {
-                this._response = parser.Parse<QuestionnaireResponse>(block);
+                this._response = parser.Parse<Bundle>(fhirJsonDocument);
             }
             catch (FormatException fe)
             {
                 Console.WriteLine(fe.ToString());
             }
-            return this._form.json = block;
         }
 
 
