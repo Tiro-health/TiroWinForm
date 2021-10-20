@@ -36,19 +36,33 @@ namespace Tiro.healthWinForm
 
         }
 
-        private void textBox2_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox3_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void button1_Click(object sender, EventArgs e)
         {
             this.webView21.Source = new System.Uri("http://10.37.129.2:3000/embedded/templates?age=" + this.ageText.Text + "&sex=" + this.sexText.Text + "&apiKey=" + this.apiKeyText.Text);
+        }
+
+        public string FhirJSONDocument {
+            get
+            {
+                return this.JSONTextBox.Text;
+            }
+            set
+            {
+                this.JSONTextBox.Text = value;
+            }
+
+        }
+        public string FhirXMLDocument
+        {
+            get
+            {
+                return this.XMLTextBox.Text;
+            }
+            set
+            {
+                this.XMLTextBox.Text = value;
+            }
+
         }
     }
 
@@ -63,7 +77,7 @@ namespace Tiro.healthWinForm
             this._form = form;
         }
 
-        public string getDocument()
+        public string getFhirDocument()
         {
             var serializer = new FhirJsonSerializer(new SerializerSettings()
             {
@@ -75,7 +89,7 @@ namespace Tiro.healthWinForm
             }
             return serializer.SerializeToString(this._response);
         }
-        public void setDocument(string fhirJsonDocument)
+        public void setFhirDocument(string fhirJsonDocument)
         {
             var parser = new FhirJsonParser(new ParserSettings
             {
@@ -86,6 +100,13 @@ namespace Tiro.healthWinForm
             try
             {
                 this._response = parser.Parse<Bundle>(fhirJsonDocument);
+                this._form.FhirJSONDocument = this._response.ToJson(new FhirJsonSerializationSettings()
+                {Pretty = true}
+                    );
+
+                this._form.FhirXMLDocument = this._response.ToXml(new FhirXmlSerializationSettings() 
+                { Pretty = true}
+                );
             }
             catch (FormatException fe)
             {
