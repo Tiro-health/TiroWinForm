@@ -29,6 +29,7 @@ namespace Tiro.healthWinForm
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.webView21 = new Microsoft.Web.WebView2.WinForms.WebView2();
             this.apiKeyText = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -190,7 +191,9 @@ namespace Tiro.healthWinForm
             this.Controls.Add(this.ageText);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.apiKeyText);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
+            this.Text = "Tiro.health - WebView2 Embedded NoteEditor";
             ((System.ComponentModel.ISupportInitialize)(this.webView21)).EndInit();
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);

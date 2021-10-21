@@ -27,6 +27,7 @@ namespace Tiro.healthWinForm
         private void Form_Resize(object sender, EventArgs e)
         {
             webView21.Size = this.ClientSize - new System.Drawing.Size(webView21.Location);
+            tabControl1.Size = this.ClientSize - new System.Drawing.Size(tabControl1.Location);
         }
 
         async void InitializeAsync()
@@ -38,7 +39,7 @@ namespace Tiro.healthWinForm
 
         private void button1_Click(object sender, EventArgs e)
         {
-            this.webView21.Source = new System.Uri("http://10.37.129.2:3000/embedded/templates?age=" + this.ageText.Text + "&sex=" + this.sexText.Text + "&apiKey=" + this.apiKeyText.Text);
+            this.webView21.Source = new System.Uri("http://write.tiro.health/embedded/templates?age=" + this.ageText.Text + "&sex=" + this.sexText.Text + "&apiKey=" + this.apiKeyText.Text);
         }
 
         public string FhirJSONDocument {
