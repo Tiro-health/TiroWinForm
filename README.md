@@ -10,4 +10,9 @@ To construct this demo integration of a web app into a WinForm application I mai
 3. Open Visual Studio
 4. Install the WebView 2 SDK with the NuGet package manager as described in the tutorial: [Step 2 - Install WebView2 SDK](https://docs.microsoft.com/en-us/microsoft-edge/webview2/get-started/winforms#step-2---install-webview2-sdk)
 5. Open the project in this repository
-6. Normally you should be able to run this demo.
+6. Press build and you should be able to see the demo.
+
+## How to integrate this in my application:
+Take a look here [this page](./EmbeddedAPI.md) which describes how to embed the Tiro web app into your .NET application..
+
+
