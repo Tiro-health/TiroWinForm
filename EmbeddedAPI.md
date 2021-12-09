@@ -19,14 +19,20 @@ In order to launch or app, you need at least an API key. Al the other paramters 
 | `sex` | enum | term indicating the patient's sex; valid options are `male`, `female`, `other` |
  <i> \* required </i>
 
+⭐️️ Note that **only the api-key is required**, this is enough to get started rapidly. Later on, if you want to increase the added value of the application, you can pass more information about the practitioner, the patient and the encounter
+
+More information on all these parameters
 ### 💾  Passing an encounter identifier, allows you to reopen notes in the future
-When passing an encounte identifier, t
+<TBC>
 
 ### ⏱ A patient identifier enables to transfer information across encounters.
+<TBC>
 
 ### 📄 The practitioner enables to learn the end-users jargon
+<TBC>
 
 ### 👨‍👦‍👦 Patient demographics will improve the terminology suggestions
+<TBC>
 
 
 ## 2. Native .NET application using a Microsoft Edge WebView2 component
