@@ -11,7 +11,7 @@ In order to launch or app, you need at least an API key. Al the other paramters 
 
 | paramter | expected value | description |
 |----------|----------------|-------------|
-| `apiKey` * | string | unique key that identifies and aut`enticates the host application |
+| `apiKey` * | string | unique key that identifies and authenticates the host application |
 | `patient` | string | unique identifier for current patient |
 | `encounter` | string | unique identifier for current encounter, this should be **globally unique across patients** |
 | `practitioner` | string | unique identifier for current practitioner | 
