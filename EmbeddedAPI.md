@@ -15,7 +15,7 @@ If you're using Atticus for a specific project you probably will have a specific
 Additionally you can pass parameters to couple the notes to specific patients, encounters and practitioners from inside your system.
 All of them are optional, the more you're passing the smoother the user experience will be
 
-| parameter | expected value | description |
+| parameter | type | description |
 |----------|----------------|-------------|
 | `apiKey` | string | unique key that identifies and authenticates the host application, (omitting this will demand the end-user to login) |
 | `patient` | string | unique identifier for current patient |
@@ -23,7 +23,7 @@ All of them are optional, the more you're passing the smoother the user experien
 | `practitioner` | string | unique identifier for current practitioner | 
 | `age` | number | integer number representing current patient's age |
 | `yob` | number | integer number representing the birthyear of a patient |
-| `dob` | number | formatted string that represents the date of birth of a patient |
+| `dob` | formatted string | fromatted string that represents the date of birth of a patient |
 | `sex` | enum | term indicating the patient's sex; valid options are `male`, `female`, `other` |
  <i> \* required </i>
 
