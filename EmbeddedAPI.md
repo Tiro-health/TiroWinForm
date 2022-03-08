@@ -3,7 +3,7 @@
 Tiro.health offers an API to embed it's Note Editor web application into your application.
 
 ## Two-way communication through messages
-Communicating from a host application, beit native or a web app, is as simply as opening a URL using HTTPS GET. The backward communications depends on your setup. The host application can use an [`<iframe>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/iframe) or a embedded browser like [Microsoft Edge WebView2](https://docs.microsoft.com/en-us/microsoft-edge/webview2/) or [Java CEF](https://bitbucket.org/chromiumembedded/java-cef/).
+Communicating from a host application, beit native or a web app, is as simply as opening a URL using HTTPS GET. The backward communications depends on your setup. The host application can launch the app inside a browser window, an [`<iframe>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/iframe) or a embedded browser like [Microsoft Edge WebView2](https://docs.microsoft.com/en-us/microsoft-edge/webview2/) or [Java CEF](https://bitbucket.org/chromiumembedded/java-cef/).
 
 ## 1. Launching the NoteEditor using HTTP GET
 
