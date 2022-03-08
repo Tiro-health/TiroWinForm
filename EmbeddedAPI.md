@@ -27,8 +27,6 @@ All of them are optional, the more you're passing the smoother the user experien
 | `sex` | enum | term indicating the patient's sex; valid options are `male`, `female`, `other` |
  <i> \* required </i>
 
-⭐️️ Note that **only the api-key is required**, this is enough to get started rapidly. Later on, if you want to increase the added value of the application, you can pass more information about the practitioner, the patient and the encounter
-
 More information on all these parameters
 ### 💾  Passing an encounter identifier, allows you to reopen notes in the future
 *To Be Completed*
